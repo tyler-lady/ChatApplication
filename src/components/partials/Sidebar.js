@@ -27,16 +27,18 @@ class Sidebar extends Component {
     render(){
         return(
             <div className="sidebar">
-                <div className="search-container">
-                    <input 
-                        className="form-control" 
-                        placeholder="Search..." 
-                        value={this.state.search}
-                        onChange={e => {
-                            this.setState({search: e.target.value})
-                        }}
-                    />
-                    <button className="btn btn-primary" onClick={e => this.search()}>Search</button>
+                <div className="input-group">
+                    <div className="search-container">
+                        <input 
+                            className="form-control" 
+                            placeholder="Search..." 
+                            value={this.state.search}
+                            onChange={e => {
+                                this.setState({search: e.target.value})
+                            }}
+                        />
+                        <button className="btn btn-search" onClick={e => this.search()}>Search</button>
+                    </div>
                 </div>
                 {this.state.search ?
                 <ul className="thread-list">
@@ -63,7 +65,7 @@ class Sidebar extends Component {
                     {this.props.threads.map((thread, tIndex) => {
                         return (
                             <li key={tIndex}>
-                                <Link to="/thread">
+                                <Link to={`${thread.id}`}>
                                     <i className="zmdi zmdi-account-circle" />
                                     <h5>{thread.id}</h5>
                                     <p>Most recent Message</p>

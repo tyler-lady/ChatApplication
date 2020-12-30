@@ -31,8 +31,11 @@
     position: fixed;
     left: 300px;
     background: #fafafa;
-    height: 100vh;
-    width: 100%;
+    height: calc(100vh - 75px);
+    width: calc(100% - 300px);
+    overflow: hidden;
+    overflow-y: scroll;
+    padding-bottom: 10px;
 }
 
 ul.thread-list {
@@ -75,15 +78,80 @@ ul.thread-list label {
 .input-view {
     position: fixed;
     left: 300px;
-    width: 100%;
+    width: calc(100% - 300px);
     bottom: 0px; 
+    box-shadow: 0px -1px 5px rgba(0,0,0,.2);
 }
 
 .input-view .form-control {
     border: none;
+    outline: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
     border-radius: 0px;
     border-top: 1px solid #eee;
     font-size: 14px;
     padding: 10px;
     height: auto;
+}
+
+.search-container .input-group {
+    margin: 20px;
+    width: calc(100% - 40px);
+    border-radius: 20px;
+    background: #eee;
+    overflow: hidden;
+}
+
+.search-container .input-group .form-control {
+    background: transparent;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    padding-left: 20px;
+    padding-top: 2px;
+}
+
+.search-container .input-group .btn.btn-search {
+    background: transparent;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    transition: background .3s;
+    padding: 5px 15px !important;
+}
+
+.message-item {
+    padding: 10px;
+}
+
+.message-item.msg-right{
+    text-align: right;
+}
+
+.message-item .zmdi.zmdi-account-circle {
+    float: left;
+    margin-top: 5px;
+    font-size: 32px;
+    color: #aaa;
+    margin-left: 0px;
+    margin-right: 5px;
+}
+
+.message-item.msg-right .zmdi.zmdi-account-circle {
+    float: right;
+}
+
+.message-item .chat-bubble {
+    max-width: 600px;
+    display: inline-block;
+    padding: 10px 15px;
+    border-radius: 5px;
+    background: #ddd;
+    margin: 0px 5px;
+}
+
+.message-item.msg-right .chat-bubble {
+    background: #1d8ff1;
+    color: #fff;
 }
